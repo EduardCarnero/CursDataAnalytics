@@ -64,6 +64,5 @@ CREATE TABLE IF NOT EXISTS bussines.transaction (
         longitude VARCHAR(20),
         FOREIGN KEY (card_id) REFERENCES credit_card(id),
         FOREIGN KEY (user_id) REFERENCES user(id),
-        FOREIGN KEY (product_id) REFERENCES product(id),
-        FOREIGN KEY (bussines_id) REFERENCES company(id)
+        FOREIGN KEY (bussines_id) REFERENCES company(company_id)
 );

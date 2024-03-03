@@ -8,11 +8,11 @@ FROM transaction, user
 WHERE amount > (SELECT AVG(amount)
 					FROM transaction)
 GROUP BY user.name
-HAVING COUNT(transaction.id) > 3;
+HAVING COUNT(transaction.id) > 30;
 
 #Ex2
-SELECT (SUM(treansaction.amount)/COUNT(transaction.amount)) AS 'Despesa mitja', company.company_name
-FROM busines.transaction, busines.company
+SELECT (SUM(transaction.amount)/COUNT(transaction.amount)) AS 'Despesa mitja', company.company_name
+FROM bussines.transaction, bussines.company
 WHERE company.company_id = transaction.bussines_id
 GROUP BY company_name
 HAVING company_name = 'Donec Ltd.';
@@ -37,3 +37,29 @@ FROM (
     ORDER BY credit_card_id, transaction_date DESC
 ) AS ordered_transactions
 GROUP BY credit_card_id;
+
+
+SELECT * FROM bussines.transaction;
+
+
+
+SELECT * FROM bussines.transaction
+ORDER BY timestamp DESC;
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
