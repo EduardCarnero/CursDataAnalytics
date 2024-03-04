@@ -48,9 +48,9 @@ CROSS JOIN product
 );
 
 
-SELECT COUNT(transaction.product_id), transaction_product.product_id
-FROM transaction
-LEFT JOIN transaction_product ON transaction.id = transaction_product.transaction_id
+SELECT COUNT(transaction_product.product_id), transaction_product.product_id
+FROM transaction_product
+RIGHT JOIN transaction ON transaction.id = transaction_product.transaction_id
 GROUP BY transaction_product.product_id;
 
 
