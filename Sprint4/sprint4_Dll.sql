@@ -53,3 +53,17 @@ FROM transaction
 LEFT JOIN transaction_product ON transaction.id = transaction_product.transaction_id
 GROUP BY transaction_product.product_id;
 
+
+INSERT INTO TransactionProduct (transaction_id, product_id)
+SELECT
+    t.transaction_id,
+    p.product_id
+FROM
+    transactions t
+CROSS JOIN
+    products p;
+    
+
+#I have a table that has transaction_id, and another that hasproduct_id.
+#I want to create a table that has every transaction_id and every product_id relating one with the other.
+#For example if i have 5 transactions and 5 products the table would have 25 rows of transaction_id = 1, product_id = 1, transaction_id = 1, product_id = 2, transaction_id = 1, product_id = 3,  etc...
